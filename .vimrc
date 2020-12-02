@@ -1,0 +1,79 @@
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+Plugin 'morhetz/gruvbox'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'konfekt/fastfold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'dense-analysis/ale'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark
+
+let g:airline#extensions#ale#enabled = 1
+
+" Split window navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <Space> za
+
+set ts=4 sw=4
+
+au BufNewFile, BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=100 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+set encoding=utf-8
+
+au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
+
+set ignorecase
+set smartcase
+
+let python_highlight_all=1
+syntax on
+
+" Show statusline always
+set laststatus=2
+
+set nu
+
+" Use default clipboard
+set clipboard=unnamed
+
+" Disable audible bell because it's annoying.
+set noerrorbells visualbell t_vb=
