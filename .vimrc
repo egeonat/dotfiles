@@ -28,9 +28,11 @@ Plugin 'dense-analysis/ale'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" Colorscheme
 autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
 
+" Show ale errors on airline
 let g:airline#extensions#ale#enabled = 1
 
 " Split window navigations
@@ -48,6 +50,7 @@ nnoremap <Space> za
 
 set ts=4 sw=4
 
+" .py file settings
 au BufNewFile, BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -59,8 +62,10 @@ au BufNewFile, BufRead *.py
 
 set encoding=utf-8
 
+" General bad whitespace detection
 au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
 
+" Search case settings
 set ignorecase
 set smartcase
 
