@@ -131,8 +131,16 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# My additions
 
-#My additions
+# My Aliases
+
+# My functions
+function kuhpc() {
+	ssh eozsuer16@login.kuacc.ku.edu.tr $@
+}
+
+# Variables
 export EDITOR=vim
 export PATH="$PATH:/home/onat/julia-1.5.2/bin"
 
