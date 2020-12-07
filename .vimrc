@@ -14,6 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
+Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
@@ -48,6 +49,13 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <Space> za
 
+if &term =~ "screen-256color"                                                   
+	let &t_BE = "\e[?2004h"                                              
+	let &t_BD = "\e[?2004l"                                              
+	exec "set t_PS=\e[200~"                                              
+	exec "set t_PE=\e[201~"                                              
+endif
+
 set ts=4 sw=4
 
 " .py file settings
@@ -61,6 +69,9 @@ au BufNewFile, BufRead *.py
     \ set fileformat=unix |
 
 set encoding=utf-8
+
+" Detect julia files properly
+autocmd BufRead,BufNewFile *.jl set filetype=julia
 
 " General bad whitespace detection
 au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
