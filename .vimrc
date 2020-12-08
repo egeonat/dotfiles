@@ -76,6 +76,9 @@ autocmd BufRead,BufNewFile *.jl set filetype=julia
 " General bad whitespace detection
 au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
 
+" Allow backspacing normally
+set backspace=indent,eol,start
+
 " Search case settings
 set ignorecase
 set smartcase
