@@ -5,5 +5,9 @@ set menu-complete-display-prefix on
 "\t": menu-complete
 "\e[Z": menu-complete-backward
 
+"\e[A":history-search-backward
+"\e[B":history-search-forward
+
 # Turn off terminal bell
 set bell-style none
+
