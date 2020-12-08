@@ -1,5 +1,9 @@
+# Autocomplete cycle if ambiguous
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set menu-complete-display-prefix on
 "\t": menu-complete
 "\e[Z": menu-complete-backward
+
+# Turn off terminal bell
+set bell-style none
