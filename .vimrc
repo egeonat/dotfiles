@@ -30,11 +30,14 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Colorscheme
-autocmd vimenter * ++nested colorscheme gruvbox
+au vimenter * ++nested colorscheme gruvbox
 set background=dark
 
 " Show ale errors on airline
 let g:airline#extensions#ale#enabled = 1
+
+" Auto-close ycm preview window
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Split window navigations
 nnoremap <C-J> <C-W><C-J>
@@ -58,20 +61,20 @@ endif
 
 set ts=4 sw=4
 
-" .py file settings
-au BufNewFile, BufRead *.py
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=100 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
-
 set encoding=utf-8
 
 " Detect julia files properly
 autocmd BufRead,BufNewFile *.jl set filetype=julia
+
+" python and julia file settings
+au Filetype julia,python set
+    \ tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=100
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
 
 " General bad whitespace detection
 au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
