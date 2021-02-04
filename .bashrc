@@ -142,10 +142,11 @@ function kuhpc() {
 
 # Variables
 export EDITOR=vim
-export PATH="$PATH:/home/onat/julia-1.5.2/bin"
+# Add julia to path
+export PATH="/home/onat/julia-1.5.3/bin:$PATH"
 
 #Carla stuff
-export CARLA_ROOT=~/carla/carla-simulator
-#export SCENARIO_RUNNER_ROOT=$CARLA_ROOT/scenario_runner
-#export LEADERBOARD_ROOT=$CARLA_ROOT/leaderboard
-#export PYTHONPATH="${CARLA_ROOT}/PythonAPI/carla/":"${SCENARIO_RUNNER_ROOT}":"${LEADERBOARD_ROOT}":${PYTHONPATH}
+export CARLA_ROOT=~/carla-simulator
+export SCENARIO_RUNNER_ROOT=~/projects/2020_CARLA_challenge/scenario_runner
+export LEADERBOARD_ROOT=~/projects/2020_CARLA_challenge/leaderboard
+export PYTHONPATH="${CARLA_ROOT}/PythonAPI/carla/":"${SCENARIO_RUNNER_ROOT}":"${LEADERBOARD_ROOT}":${PYTHONPATH}
