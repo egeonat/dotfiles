@@ -147,6 +147,6 @@ export PATH="/home/onat/julia-1.5.3/bin:$PATH"
 
 #Carla stuff
 export CARLA_ROOT=~/carla-simulator
-export SCENARIO_RUNNER_ROOT=~/projects/2020_CARLA_challenge/scenario_runner
-export LEADERBOARD_ROOT=~/projects/2020_CARLA_challenge/leaderboard
+export SCENARIO_RUNNER_ROOT=~/projects/scenario_runner
+export LEADERBOARD_ROOT=~/projects/leaderboard
 export PYTHONPATH="${CARLA_ROOT}/PythonAPI/carla/":"${SCENARIO_RUNNER_ROOT}":"${LEADERBOARD_ROOT}":${PYTHONPATH}
