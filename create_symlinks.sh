@@ -13,5 +13,7 @@ ln -f ${DIR}/.pylintrc ~/.pylintrc
 ln -f ${DIR}/.tmux.conf ~/.tmux.conf
 ln -f ${DIR}/.vimrc ~/.vimrc
 
+ln -f ${DIR}/flake8 ~/.config/flake8
+
 ln -f ${DIR}/ssh_rc ~/.ssh/rc
 ln -f ${DIR}/ssh_config ~/.ssh/config
