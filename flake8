@@ -1,3 +1,5 @@
 [flake8]
+# E124 forced indentation style is ugly and doesn't help readability in my opinion
 ignore = E124
+# 97 characters is the most that fits on my vim environment on my laptop screen
 max-line-length = 95
