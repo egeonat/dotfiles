@@ -6,12 +6,17 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
 ln -f ${DIR}/.bashrc ~/.bashrc
+conda init
 ln -f ${DIR}/.gitconfig ~/.gitconfig
 ln -f ${DIR}/.inputrc ~/.inputrc
 ln -f ${DIR}/.pylintrc ~/.pylintrc
 ln -f ${DIR}/.tmux.conf ~/.tmux.conf
 ln -f ${DIR}/.vimrc ~/.vimrc
+vim +PluginInstall +qall -c ":q"
 
 ln -f ${DIR}/flake8 ~/.config/flake8
 
