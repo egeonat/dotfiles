@@ -116,6 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Don't auto activate base environment in tmux so tmux can inherit CONDA_DEFAULT_ENV
+if [ -n "$TMUX" ]; then
+	export CONDA_AUTO_ACTIVATE_BASE=false
+fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/egeonat/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -131,7 +136,12 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# My additions
+## My additions
+
+# This helps tmux activate conda envs if it inherits a CONDA_DEFAULT_ENV variable
+if [ -n "$CONDA_DEFAULT_ENV" ]; then
+    __conda_reactivate
+fi
 
 # My Aliases
 
@@ -145,8 +155,8 @@ export EDITOR=vim
 # Add julia to path
 export PATH="/home/onat/julia-1.5.3/bin:$PATH"
 
-#Carla stuff
-export CARLA_ROOT=~/carla-simulator
+# Carla stuff
+export CARLA_ROOT=~/carla_sim_0.9.11
 export SCENARIO_RUNNER_ROOT=~/projects/scenario_runner
 export LEADERBOARD_ROOT=~/projects/leaderboard
 export PYTHONPATH="${CARLA_ROOT}/PythonAPI/carla/":"${SCENARIO_RUNNER_ROOT}":"${LEADERBOARD_ROOT}":${PYTHONPATH}
