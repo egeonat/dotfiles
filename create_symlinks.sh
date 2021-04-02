@@ -6,8 +6,13 @@
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
+if [ $USER = "root" ]; then
+	echo "Don't run this script as root!"
+	exit 1
+fi
+if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+fi
 
 ln -f ${DIR}/.bashrc ~/.bashrc
 conda init
