@@ -10,20 +10,26 @@ if [ $USER = "root" ]; then
 	echo "Don't run this script as root!"
 	exit 1
 fi
+
 if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+	echo "Installing Vundle for vim"
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 fi
 
-ln -f ${DIR}/.bashrc ~/.bashrc
+ln -fs ${DIR}/.bashrc ~/.bashrc
+echo "Initalizing conda..."
 conda init
-ln -f ${DIR}/.gitconfig ~/.gitconfig
-ln -f ${DIR}/.inputrc ~/.inputrc
-ln -f ${DIR}/.pylintrc ~/.pylintrc
-ln -f ${DIR}/.tmux.conf ~/.tmux.conf
-ln -f ${DIR}/.vimrc ~/.vimrc
+
+ln -fs ${DIR}/.gitconfig ~/.gitconfig
+ln -fs ${DIR}/.inputrc ~/.inputrc
+ln -fs ${DIR}/.pylintrc ~/.pylintrc
+ln -fs ${DIR}/.tmux.conf ~/.tmux.conf
+ln -fs ${DIR}/.vimrc ~/.vimrc
+
+echo "Installing vim plugins"
 vim +PluginInstall +qall -c ":q"
 
-ln -f ${DIR}/flake8 ~/.config/flake8
+ln -fs ${DIR}/flake8 ~/.config/flake8
 
-ln -f ${DIR}/ssh_rc ~/.ssh/rc
-ln -f ${DIR}/ssh_config ~/.ssh/config
+ln -fs ${DIR}/ssh_rc ~/.ssh/rc
+ln -fs ${DIR}/ssh_config ~/.ssh/config
