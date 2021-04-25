@@ -10,22 +10,28 @@ if [ $USER = "root" ]; then
 	echo "Don't run this script as root!"
 	exit 1
 fi
+
 if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
+	echo "Installing Vundle for vim"
 	git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 fi
 
-ln -f ${DIR}/.bashrc ${HOME}/.bashrc
+ln -fs ${DIR}/.bashrc ${HOME}/.bashrc
+
+echo "Initalizing conda..."
 conda init
-ln -f ${DIR}/.gitconfig ${HOME}/.gitconfig
-ln -f ${DIR}/.inputrc ${HOME}/.inputrc
-ln -f ${DIR}/.pylintrc ${HOME}/.pylintrc
-ln -f ${DIR}/.tmux.conf ${HOME}/.tmux.conf
-ln -f ${DIR}/.vimrc ${HOME}/.vimrc
+
+ln -fs ${DIR}/.gitconfig ${HOME}/.gitconfig
+ln -fs ${DIR}/.inputrc ${HOME}/.inputrc
+ln -fs ${DIR}/.pylintrc ${HOME}/.pylintrc
+ln -fs ${DIR}/.tmux.conf ${HOME}/.tmux.conf
+ln -fs ${DIR}/.vimrc ${HOME}/.vimrc
 ln -fs ${DIR}/ftplugin ${HOME}/.vim/ftplugin
 
+echo "Installing vim plugins"
 vim +PluginInstall +qall -c ":q"
 
-ln -f ${DIR}/flake8 ${HOME}/.config/flake8
+ln -fs ${DIR}/flake8 ${HOME}/.config/flake8
 
-ln -f ${DIR}/ssh_rc ${HOME}/.ssh/rc
-ln -f ${DIR}/ssh_config ${HOME}/.ssh/config
+ln -fs ${DIR}/ssh_rc ${HOME}/.ssh/rc
+ln -fs ${DIR}/ssh_config ${HOME}/.ssh/config
