@@ -1,43 +1,53 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible   " required for Vundle
+filetype off       " required for Vundle
+
+" Remove existing autocommands
+autocmd!  
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+" Vundle plugins here
 
-Plugin 'JuliaEditorSupport/julia-vim'
+" Color themes
 Plugin 'morhetz/gruvbox'
+" Git support
 Plugin 'tpope/vim-fugitive'
+" Status bar
 Plugin 'vim-airline/vim-airline'
+" Status bar themes
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'tmhedberg/SimpylFold'
+" Faster folding
 Plugin 'konfekt/fastfold'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'ycm-core/YouCompleteMe'
+" Asynchronous linting/fixing
 Plugin 'dense-analysis/ale'
+" Comment/uncomment code
+Plugin 'tpope/vim-commentary'
+" Python completion help
+Plugin 'davidhalter/jedi-vim'
+" Python indentation
+Plugin 'vim-scripts/indentpython.vim'
+" Python folding
+Plugin 'tmhedberg/SimpylFold'
+" Julia support
+Plugin 'JuliaEditorSupport/julia-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Colorscheme
-au vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox
 set background=dark
 
+" Show statusline always
+set laststatus=2
 " Show ale errors on airline
 let g:airline#extensions#ale#enabled = 1
-
-" Auto-close ycm preview window
-let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Split window navigations
 nnoremap <C-J> <C-W><C-J>
@@ -60,21 +70,10 @@ if &term =~ "screen-256color"
 endif
 
 set ts=4 sw=4
-
 set encoding=utf-8
 
 " Detect julia files properly
 autocmd BufRead,BufNewFile *.jl set filetype=julia
-
-" python and julia file settings
-au Filetype julia,python set
-    \ tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=100
-    \ expandtab
-    \ autoindent
-    \ fileformat=unix
 
 " General bad whitespace detection
 au BufRead, BufNewFile *.py,*.pyw,*.jl,*.c,*.h match BadWhitespace /\s\+$/
@@ -86,12 +85,9 @@ set backspace=indent,eol,start
 set ignorecase
 set smartcase
 
-let python_highlight_all=1
 syntax on
 
-" Show statusline always
-set laststatus=2
-
+" Line numbers
 set nu
 
 " Use default clipboard
