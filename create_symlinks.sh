@@ -26,7 +26,7 @@ ln -fs ${DIR}/.inputrc ${HOME}/.inputrc
 ln -fs ${DIR}/.pylintrc ${HOME}/.pylintrc
 ln -fs ${DIR}/.tmux.conf ${HOME}/.tmux.conf
 ln -fs ${DIR}/.vimrc ${HOME}/.vimrc
-ln -fs ${DIR}/ftplugin ${HOME}/.vim/ftplugin
+ln -fsn ${DIR}/ftplugin ${HOME}/.vim/ftplugin
 
 echo "Installing vim plugins"
 vim +PluginInstall +qall -c ":q"
