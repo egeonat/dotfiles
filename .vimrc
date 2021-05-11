@@ -58,9 +58,10 @@ nnoremap <C-H> <C-W><C-H>
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+" Enable folding with CTRL+Spacebar
+nnoremap <C-Space> za
 
-" Enable folding with the spacebar
-nnoremap <Space> za
+let mapleader = " "
 
 if &term =~ "screen-256color"                                                   
 	let &t_BE = "\e[?2004h"                                              

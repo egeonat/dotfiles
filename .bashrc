@@ -139,8 +139,8 @@ unset __conda_setup
 ## My additions
 
 # This helps tmux activate conda envs if it inherits a CONDA_DEFAULT_ENV variable
-if [ -n "$CONDA_DEFAULT_ENV" ]; then
-    __conda_reactivate
+if [ -n "$TMUX" ] && [ -n "$CONDA_DEFAULT_ENV" ]; then
+    conda activate "$CONDA_DEFAULT_ENV"
 fi
 
 # My Aliases
