@@ -155,6 +155,8 @@ fi
 if [ -n "$(command -v module)" ] && [ -z "$TMUX" ];
 then
 	module load vim/8.2
+	# Unload python loaded by vim
+	module unload python/3.6.3
 	module load cuda/11.0
 	module load cudnn/8.1.1/cuda-11.X
 	module load anaconda/3.6
